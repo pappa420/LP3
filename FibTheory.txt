@@ -1,0 +1,38 @@
+*********************Fib Theory*******************
+
+Overview:
+
+The Fibonacci numbers are the numbers in the following integer sequence.
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,........
+In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation
+Fn = Fn-1 + Fn-2
+With seed values
+F0 = 0 and F1 = 1.
+The function recursive_fibonacci takes an integer n as input and calculates the nth number in the Fibonacci sequence.
+
+
+
+code:
+
+recursive_fibonacci function:
+
+This function calculates the nth Fibonacci number using recursion.
+If the input n is 0 or 1, it returns n itself, representing the base cases of the Fibonacci sequence.
+If n is greater than 1, it recursively calls the recursive_fibonacci function for (n-1) and (n-2), summing the results to compute the Fibonacci number for n.
+nonrecursive_fibonacci function:
+
+This function calculates the Fibonacci sequence in a non-recursive or iterative manner.
+It initializes first and second variables to 0 and 1 respectively (representing the first two numbers of the Fibonacci sequence).
+It prints the values of first and second.
+It enters a while loop that continues until n - 2 becomes less than or equal to 0.
+Within this loop:
+It calculates the third Fibonacci number by adding the first and second numbers.
+It shifts the values: first becomes the previous value of second, and second becomes the newly calculated third.
+It prints the value of the newly calculated third.
+It decrements n by 1.
+main section:
+
+It prompts the user to input a number (n).
+It then prints "Recursive" and tries to iterate over a range from 0 to n, calling the recursive_fibonacci(i) function in each iteration. This code part might throw an error as the recursive_fibonacci function is not designed to handle iterations in this manner.
+After the "Recursive" print loop, it prints "Non Recursive" and calls the nonrecursive_fibonacci function, passing the input n.
+

@@ -1,0 +1,41 @@
+*****************01 Knapsack Theory****************
+
+Overview:
+
+Given a set of items, each with a weight and a value, determine a subset of items to include in a collection so that
+the total weight is less than or equal to a given limit and the total value is as large as possible.
+
+Dynamic Programming Approach- Let i be the highest-numbered item in an optimal solution S for W dollars. Then S' = S - {i} is an optimal
+solution for W - wi dollars and the value to the solution S is Vi plus the value of the sub-problem.
+We can express this fact in the following formula: define c[i, w] to be the solution for items 1,2, ... , i and the
+maximum weight w.
+
+Branch and Bound Approach:
+Branch and bound is an algorithm design paradigm which is generally used for solving combinatorial
+optimization problems. These problems typically exponential in terms of time complexity and may require
+exploring all possible permutations in worst case. Branch and Bound solve these problems relatively quickly.
+
+Time Complexity= O(2^n)
+
+Code:
+
+ The 0/1 Knapsack problem is a classic optimization problem where given a set of items, each with a weight and a value, the goal is to determine the most valuable combination of items that can be included in a knapsack of limited capacity.
+
+Here's an explanation of the code:
+
+knapsack_01 function:
+
+Arguments: weights (list of item weights), values (list of item values), and capacity (maximum capacity of the knapsack).
+The function initializes a 2D list dp (dynamic programming array) with dimensions (n+1) x (capacity+1) where n is the number of items.
+It then iterates over each item and builds a dynamic programming table to determine the maximum value that can be achieved for every sub-capacity and subset of items.
+The algorithm fills in the dp table considering each item's weight and value, aiming to maximize the value while ensuring the weight of selected items doesn't exceed the knapsack's capacity.
+The dp[i][w] value at each cell represents the maximum value that can be obtained with i items and a knapsack capacity of w.
+The algorithm compares the value of adding the ith item to the knapsack against the value without including it, ensuring the weight constraints are satisfied. It updates dp[i][w] accordingly.
+The function returns the maximum value that can be obtained with the given capacity and items.
+main function:
+
+Asks the user to input the number of items, weights of items, values of items, and the capacity of the knapsack.
+Converts the input strings to lists of integers.
+Calls the knapsack_01 function with the provided input.
+Finally, it prints the maximum value that can be obtained within the knapsack given the items' weights and values.
+

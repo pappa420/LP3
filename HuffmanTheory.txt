@@ -1,0 +1,35 @@
+***************************Huffman Theory**************************
+
+Overview:
+Huffman coding is a lossless data compression algorithm. The idea is to assign variable-length codes to input
+characters; lengths of the assigned codes are based on the frequencies of corresponding characters. The most
+frequent character gets the smallest code and the least frequent character gets the largest code.
+The variable-length codes assigned to input characters are Prefix Codes, means the codes (bit sequences) are
+assigned in such a way that the code assigned to one character is not the prefix of code assigned to any other
+character. This is how Huffman Coding makes sure that there is no ambiguity when decoding the generated
+bitstream.
+
+Time Complexity= O(nlogn) where n is number of unique characters
+
+Code:
+
+Node class:
+
+Node class represents a node in the Huffman tree.
+It contains attributes for frequency (freq), symbol (character) to be encoded (symbol), references to left and right children (left and right), and the Huffman code (huff) for the character.
+__lt__ method:
+
+This method is a comparison operator overridden in the Node class for use in the priority queue (heapq). It enables comparing nodes based on their frequencies.
+printNodes function:
+
+This function recursively traverses the Huffman tree and prints the Huffman codes for each character leaf node.
+It starts with an empty val, which stores the Huffman code for each character.
+It traverses the tree, appending '0' for the left child and '1' for the right child until it reaches a leaf node. Once it reaches a leaf node, it prints the character and its corresponding Huffman code.
+main function:
+
+It prompts the user to enter the number of characters and their frequencies.
+It creates Node objects for each character and their frequency, adding them to a priority queue (nodes) using heapq.
+It then performs the Huffman coding algorithm by repeatedly dequeuing the two nodes with the lowest frequencies, creating a new node with the combined frequency, and reconnecting the dequeued nodes as left and right children of the new node.
+It assigns '0' and '1' to the left and right children (left.huff and right.huff) to build the Huffman code path.
+Finally, it calls the printNodes function with the root node of the Huffman tree to display the Huffman codes for each character.
+
